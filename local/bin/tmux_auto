@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-if tmux has-session 2>/dev/null; then
-    exec tmux -f ~/.config/tmux/tmux.conf attach
-else
-    exec tmux -f ~/.config/tmux/tmux.conf new -s main
-fi
-

@@ -1,19 +1,9 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 
 # PATH
 # add home local bin
 export PATH="$HOME/.local/bin:$PATH"
 
-
-
 # The following lines were added by compinstall
-
 zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
 zstyle ':completion:*' insert-unambiguous false
 zstyle ':completion:*' list-colors 'di=1;34:ln=1;36:so=1;32:pi=1;33:ex=31:bd=1;30;46:cd=97;100:su=30;41:sg=30;46:tw=30;42:ow=30;43'
@@ -38,17 +28,7 @@ mkdir -p "${ZSH_COMPDUMP:h}"
 
 autoload -Uz compinit
 compinit -d "$ZSH_COMPDUMP"
-
-
 # End of lines added by compinstall
-
-
-
-
-
-
-
-
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.local/zsh_history
@@ -59,22 +39,26 @@ unsetopt beep notify
 bindkey -e
 # End of lines configured by zsh-newuser-install
 
+
+
+
+
 #lscolors regular
 # di=34:ln=36:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43
 #lscolors bold
 # di=1;34:ln=1;36:so=1;32:pi=1;33:ex=31:bd=1;34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43
 
 
-source ~/.local/powerlevel10k/powerlevel10k.zsh-theme
+source ~/.local/share/zsh-plugins/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-source ~/.local/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.local/share/zsh-plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#737373,underline"
 
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.sh
+#source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.sh
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
