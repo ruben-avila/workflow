@@ -18,3 +18,6 @@ This file shows which system directory should be linked for each folder.
 
 ## config/tmux
 ~/.config/tmux/
+
+## config/emacs
+~/.emacs/

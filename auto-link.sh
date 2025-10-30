@@ -8,6 +8,7 @@ LINKS=(
     "$DOTFILES_DIR/config/home/zshrc -> $HOME/.zshrc"
     "$DOTFILES_DIR/config/home/bashrc -> $HOME/.bashrc"
     "$DOTFILES_DIR/config/home/p10k.zsh -> $HOME/.p10k.zsh"
+    "$DOTFILES_DIR/config/emacs/init.el -> $HOME/.emacs.d/init.el"
     "$DOTFILES_DIR/config/alacritty -> $HOME/.config/alacritty"
     "$DOTFILES_DIR/config/i3 -> $HOME/.config/i3"
     "$DOTFILES_DIR/config/picom -> $HOME/.config/picom"
@@ -25,8 +26,6 @@ LINKS=(
     "$DOTFILES_DIR/local/share/zsh-plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh -> $HOME/.local/share/zsh-plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
     "$DOTFILES_DIR/local/share/zsh-plugins/zsh-syntax-highlighting/highlighters -> $HOME/.local/share/zsh-plugins/zsh-syntax-highlighting/highlighters"
 )
-# Backup suffix
-BACKUP_SUFFIX=".backup_$(date +%Y%m%d%H%M%S)"
 
 for entry in "${LINKS[@]}"; do
     src="${entry%% -> *}"
@@ -34,12 +33,6 @@ for entry in "${LINKS[@]}"; do
 
     # Ensure parent directory exists
     mkdir -p "$(dirname "$target")"
-
-    # Backup existing files or symlinks
-    #if [ -e "$target" ] || [ -L "$target" ]; then
-    #    echo "Backing up $target -> $target$BACKUP_SUFFIX"
-    #    mv "$target" "$target$BACKUP_SUFFIX"
-    #fi
 
     # Create symlink
     if [ -d "$src" ]; then
